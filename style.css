@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #010101;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #010101;
+}
+
+.heart {
+  position: absolute;
+  width: 400px;
+  height: 360px;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.heart.big {
+  width: 640px;
+  height: 576px;
+}
+
+.heart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(7px 8px 0 rgba(0, 0, 0, .38));
+}
+
+.heart .lyric {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.heart.big .lyric {
+  font-size: 26px;
+}
+
+.particle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .9;
+  animation: particle-rise linear forwards;
+}
+
+.particle svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes particle-rise {
+  from {
+    transform: translateY(0);
+    opacity: .9;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .heart {
+    width: 260px;
+    height: 234px;
+  }
+
+  .heart.big {
+    width: 390px;
+    height: 351px;
+  }
+
+  .heart .lyric {
+    font-size: 14px;
+  }
+
+  .heart.big .lyric {
+    font-size: 18px;
+  }
+}
+
+#playButton {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 12px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  background: rgba(255, 0, 60, 0.8);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
